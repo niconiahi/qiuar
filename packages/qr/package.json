@@ -30,9 +30,12 @@
     "build": "tsup",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "test:unit": "vitest",
     "publish": "pnpm publish --access public"
   },
   "devDependencies": {
-    "tsup": "^8.0.1"
+    "tsup": "^8.0.1",
+    "vite": "^5.0.8",
+    "vitest": "^1.2.1"
   }
 }
