@@ -1,0 +1,24 @@
+{
+  "name": "@qiuar/source",
+  "type": "module",
+  "author": "Nicolas Accetta",
+  "license": "ISC",
+  "scripts": {
+    "dev": "run-p dev:**",
+    "dev:app:playground": "pnpm --filter @qiuar/playground run dev",
+    "dev:package:qr": "pnpm --filter @qiuar/qr run dev",
+    "build": "pnpm --recursive --sort --filter @qiuar/playground run build",
+    "lint": "pnpm --recursive --filter !@qiuar/playground run lint",
+    "lint:fix": "pnpm --recursive --filter !@qiuar/playground run lint:fix",
+    "version": "changeset version",
+    "publish": "pnpm --recursive --filter !@qiuar/playground run publish"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.6.3",
+    "@changesets/cli": "^2.27.1",
+    "eslint": "~8.56.0",
+    "eslint-plugin-format": "^0.1.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.3.3"
+  }
+}
