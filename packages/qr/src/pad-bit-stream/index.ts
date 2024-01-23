@@ -1,1 +1,1 @@
-export * from "./number-to-binary"
+export * from "./pad-bit-stream"
