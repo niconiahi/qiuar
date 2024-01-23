@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest"
 import { createMatrix } from "./create-matrix"
 
 describe.skip("createMatrix", () => {
-  it("it should create a matrix for hello world", () => {
+  it("should create a matrix for hello world", () => {
     const input = "Hello World"
     const result = createMatrix(input)
     // TODO: change the output to correct one

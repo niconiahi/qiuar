@@ -1,33 +1,6 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import type { Matrix } from "./create-matrix/create-matrix"
-import { CHARACTER_COUNT_INDICATOR_LENGTH } from "./create-matrix/create-matrix"
-
-/**
- * Generates the character count indicator for a given length of input data.
- * @param length The length of the input data.
- * @returns A binary string representing the character count indicator.
- */
-export function getCharacterCountIndicator(length: number): string {
-  return length.toString(2).padStart(CHARACTER_COUNT_INDICATOR_LENGTH, "0")
-}
-
-/**
- * Pads a bit stream to a specific length as required by the QR code specifications.
- * @param stream The original bit stream.
- * @returns The padded bit stream.
- */
-export function padBitStream(stream: string): string {
-  // Example padding for illustration; actual padding depends on QR code version and error correction level.
-  const targetLength = 152 // Example target length for version 1-L error correction level.
-  const padLength = targetLength - stream.length
-  const padBytes = "11101100" + "00010001" // Standard QR code padding pattern.
-  let paddedStream = stream
-  for (let i = 0; i < padLength; i += 8) {
-    paddedStream += padBytes.substr(0, Math.min(padLength - i, 8))
-  }
-  return paddedStream
-}
 
 /**
  * Places finder patterns in the QR code matrix. Finder patterns are required in all QR codes and help scanners locate and orient the code.
