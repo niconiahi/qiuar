@@ -1,4 +1,5 @@
-export * from "./create-matrix"
+export * from "./compose-finder-patterns"
 export * from "./get-bit-stream"
+export * from "./get-matrix"
 export * from "./number-to-binary"
 export * from "./pad-bit-stream"

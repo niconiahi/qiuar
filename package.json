@@ -9,6 +9,7 @@
     "dev:package:qr": "pnpm --filter @qiuar/qr run dev",
     "build": "pnpm --recursive --sort --filter @qiuar/playground run build",
     "lint": "pnpm --recursive --filter !@qiuar/playground run lint",
+    "test:unit": "pnpm --recursive --filter !@qiuar/playground run test:unit",
     "lint:fix": "pnpm --recursive --filter !@qiuar/playground run lint:fix",
     "version": "changeset version",
     "publish": "pnpm --recursive --filter !@qiuar/playground run publish"

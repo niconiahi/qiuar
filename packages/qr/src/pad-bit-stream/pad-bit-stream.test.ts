@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest"
 
-import { MODE } from "../create-matrix/create-matrix"
 import { getBitStream } from "../get-bit-stream/get-bit-stream"
+import { MODE } from "../get-matrix/get-matrix"
 import { CHARACTER_COUNT_INDICATOR_LENGTH, numberToBinary } from "../number-to-binary/number-to-binary"
 
 import { padBitStream } from "./pad-bit-stream"
