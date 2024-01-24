@@ -45,6 +45,7 @@ export default antfu(
       "no-unused-vars": ["error", { vars: "all", args: "all", ignoreRestSiblings: false, argsIgnorePattern: "^_" }],
       "no-fallthrough": "error",
       "style/arrow-parens": ["error", "always"],
+      "style/operator-linebreak": ["error", "after"],
     },
   },
 )
