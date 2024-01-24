@@ -1,5 +1,6 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable no-unused-vars */
+import { composeAlignmentPatterns } from "../compose-alignment-patterns/compose-alignment-patterns"
 import { SIZE, composeFinderPatterns } from "../compose-finder-patterns/compose-finder-patterns"
 import { getBitStream } from "../get-bit-stream/get-bit-stream"
 import { numberToBinary } from "../number-to-binary/number-to-binary"
@@ -18,6 +19,7 @@ export type Mode = ObjectValues<typeof MODE>
 export const VERSION = {
   ONE: 21,
   TWO: 25,
+  THREE: 32,
 } as const
 export type Version = ObjectValues<typeof VERSION>
 
@@ -34,25 +36,22 @@ export const CHARACTER_SIZE = {
 } as const
 export type CharacterSize = ObjectValues<typeof CHARACTER_SIZE>
 
-export type Matrix = boolean[][]
+export type Matrix = number[][]
 export function getMatrix(text: string): Matrix {
-  const matrix = pipe(
-    createMatrix(VERSION.ONE),
-    (matrix) => composeFinderPatterns(matrix, SIZE.SEVEN),
-    (matrix) => composeFinderPatterns(matrix, SIZE.SEVEN),
-    (matrix) => composeFinderPatterns(matrix, SIZE.SEVEN),
-  )
-  // placeAlignmentPatterns(matrix)
-  // placeTimingPatterns(matrix)
-
   const bitStream = padBitStream(
     MODE.BYTE + numberToBinary(text.length) + getBitStream(text),
     CHARACTER_SIZE.EIGHT,
   )
-  // placeDataBits(matrix, bitStream)
-
-  // const maskPattern = chooseBestMaskPattern(matrix)
-  // applyMask(matrix, maskPattern)
+  const version = VERSION.TWO
+  const matrix = pipe(
+    createMatrix(version),
+    (matrix) => composeFinderPatterns(matrix, SIZE.SEVEN),
+    (matrix) => composeAlignmentPatterns(matrix, version),
+    // (matrix) => composeTimingPatterns(matrix, SIZE.SEVEN),
+    // (matrix) => composeBitStream(matrix, SIZE.SEVEN),
+    // (matrix) => [matrix, getMaskPattern(matrix)],
+    // ([matrix, maskPattern]) => composeMask(matrix, maskPattern)
+  )
 
   return matrix
 }
@@ -63,6 +62,6 @@ export function pipe<T>(initialState: T, ...fns: ((arg: T) => T)[]): T {
 export function createMatrix(version: Version): Matrix {
   return Array.from(
     { length: version },
-    () => Array.from({ length: version }, () => false),
+    () => Array.from({ length: version }, () => 0),
   )
 }

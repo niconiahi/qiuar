@@ -12,7 +12,7 @@ export function composeFinderPatterns(matrix: Matrix, size: Size): Matrix {
   // pattern in the top-left corner
   for (let i = 0; i < pattern.length; i++) {
     for (let j = 0; j < pattern[i].length; j++) {
-      matrix[i][j] = pattern[i][j] === 1
+      matrix[i][j] = pattern[i][j]
     }
   }
 
@@ -20,14 +20,14 @@ export function composeFinderPatterns(matrix: Matrix, size: Size): Matrix {
   const end = matrix.length
   for (let i = 0; i < pattern.length; i++) {
     for (let j = 0; j < pattern[i].length; j++) {
-      matrix[i][end - size + j] = pattern[i][j] === 1
+      matrix[i][end - size + j] = pattern[i][j]
     }
   }
 
   // pattern in the bottom-left corner
   for (let i = 0; i < pattern.length; i++) {
     for (let j = 0; j < pattern[i].length; j++) {
-      matrix[end - size + i][j] = pattern[i][j] === 1
+      matrix[end - size + i][j] = pattern[i][j]
     }
   }
 

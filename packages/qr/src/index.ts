@@ -1,3 +1,4 @@
+export * from "./compose-alignment-patterns"
 export * from "./compose-finder-patterns"
 export * from "./get-bit-stream"
 export * from "./get-matrix"
