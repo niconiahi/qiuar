@@ -32,9 +32,9 @@ function getAmount(version: Version): number {
   if (version === VERSION.ONE) {
     return 0
   }
-  if (version === VERSION.TWO) {
-    return 1
-  }
+  // if (version === VERSION.TWO) {
+  //   return 1
+  // }
   return 0
 }
 

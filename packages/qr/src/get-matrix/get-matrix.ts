@@ -8,41 +8,41 @@ import { padBitStream } from "../pad-bit-stream/pad-bit-stream"
 
 export const MODE = {
   BYTE: "0100",
-  NUMERIC: "0001",
-  ALPHANUMERIC: "0010",
-  KANJI: "1000",
-  ECI: "0111",
+  // NUMERIC: "0001",
+  // ALPHANUMERIC: "0010",
+  // KANJI: "1000",
 } as const
 type ObjectValues<T> = T[keyof T]
 export type Mode = ObjectValues<typeof MODE>
 
 export const VERSION = {
   ONE: 21,
-  TWO: 25,
-  THREE: 32,
+  // TWO: 25,
+  // THREE: 29,
+  // FOUR: 33,
+  // TEN: 57,
+  // TWENTY_FIVE: 117,
+  // FORTY: 177,
 } as const
 export type Version = ObjectValues<typeof VERSION>
 
-export const CHARACTER_SIZE = {
-  ONE: 1,
-  TWO: 2,
-  THREE: 3,
-  FOUR: 4,
-  FIVE: 5,
-  SIX: 6,
-  SEVEN: 7,
-  EIGHT: 8,
-  NINE: 9,
+export const MODE_SIZE = {
+  BYTE: 8,
+  // NUMERIC: 8,
+  // ALPHANUMERIC: 8,
+  // KANJI: 8,
 } as const
-export type CharacterSize = ObjectValues<typeof CHARACTER_SIZE>
+export type CharacterSize = ObjectValues<typeof MODE_SIZE>
 
+// 0 === white
+// 1 === black
 export type Matrix = number[][]
 export function getMatrix(text: string): Matrix {
   const bitStream = padBitStream(
     MODE.BYTE + numberToBinary(text.length) + getBitStream(text),
-    CHARACTER_SIZE.EIGHT,
+    MODE_SIZE.BYTE,
   )
-  const version = VERSION.TWO
+  const version = VERSION.ONE
   const matrix = pipe(
     createMatrix(version),
     (matrix) => composeFinderPatterns(matrix, SIZE.SEVEN),
