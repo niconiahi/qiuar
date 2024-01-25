@@ -61,7 +61,7 @@ function getPositions(matrix: Matrix, version: Version): Position[] {
 }
 
 function getCoordinate(position: number): number {
-  const START = 10
+  const OFFSET = 10
   const INTERVAL = 4
-  return position + 1 * INTERVAL + START
+  return position + 1 * INTERVAL + OFFSET
 }
