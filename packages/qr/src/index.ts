@@ -1,5 +1,6 @@
 export * from "./compose-alignment-patterns"
 export * from "./compose-finder-patterns"
+export * from "./compose-separators"
 export * from "./get-bit-stream"
 export * from "./get-matrix"
 export * from "./number-to-binary"
