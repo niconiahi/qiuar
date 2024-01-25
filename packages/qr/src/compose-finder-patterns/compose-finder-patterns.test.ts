@@ -2,12 +2,12 @@ import { describe, expect, it } from "vitest"
 
 import { VERSION, createMatrix } from "../get-matrix/get-matrix"
 
-import { SIZE, composeFinderPatterns } from "./compose-finder-patterns"
+import { composeFinderPatterns } from "./compose-finder-patterns"
 
 describe("composeFinderPatterns", () => {
   it("should correctly set up finder patterns on version one matrix", () => {
     const matrix = createMatrix(VERSION.ONE)
-    const result = composeFinderPatterns(matrix, SIZE.SEVEN)
+    const result = composeFinderPatterns(matrix)
     const output = [
       [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1],
       [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
