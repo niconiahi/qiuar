@@ -11,19 +11,19 @@ export const LEVEL = {
 type ObjectValues<T> = T[keyof T]
 export type Level = ObjectValues<typeof LEVEL>
 
-const SIZE = 2
+export const LENGTH = 2
 
 export function composeErrorCorrections(matrix: Matrix, level: Level): Matrix {
   const offset = FINDER_PATTERN.length + SEPARATOR_WIDTH
   const end = matrix.length
 
   // top-left error correction
-  for (let i = 0; i < SIZE; i++) {
+  for (let i = 0; i < LENGTH; i++) {
     matrix[offset][i] = level[i]
   }
 
   // bottom-left error correction
-  for (let i = 0; i < SIZE; i++) {
+  for (let i = 0; i < LENGTH; i++) {
     matrix[end - i - 1][offset] = level[i]
   }
 

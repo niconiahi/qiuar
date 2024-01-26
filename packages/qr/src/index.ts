@@ -1,6 +1,7 @@
 export * from "./compose-alignments"
 export * from "./compose-error-corrections"
 export * from "./compose-finders"
+export * from "./compose-masks"
 export * from "./compose-quiet-zone"
 export * from "./compose-separators"
 export * from "./get-bit-stream"

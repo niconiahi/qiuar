@@ -29,21 +29,14 @@ export const VERSION = {
 } as const
 export type Version = ObjectValues<typeof VERSION>
 
-export const MODE_SIZE = {
-  BYTE: 8,
-  // NUMERIC: 8,
-  // ALPHANUMERIC: 8,
-  // KANJI: 8,
-} as const
-export type CharacterSize = ObjectValues<typeof MODE_SIZE>
-
 // 0 === white
 // 1 === black
 export type Matrix = number[][]
 export function getMatrix(text: string): Matrix {
+  const BYTE = 8
   const bitStream = padBitStream(
     MODE.BYTE + numberToBinary(text.length) + getBitStream(text),
-    MODE_SIZE.BYTE,
+    BYTE,
   )
   const errorCorrection = LEVEL.L
   const version = VERSION.ONE
