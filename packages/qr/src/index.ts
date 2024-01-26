@@ -1,4 +1,5 @@
 export * from "./compose-alignments"
+export * from "./compose-error-corrections"
 export * from "./compose-finders"
 export * from "./compose-separators"
 export * from "./compose-quiet-zone"
