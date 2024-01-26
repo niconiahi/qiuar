@@ -3,6 +3,7 @@
 import { composeAlignments } from "../compose-alignments/compose-alignments"
 import { LEVEL, composeErrorCorrections } from "../compose-error-corrections/compose-error-corrections"
 import { composeFinders } from "../compose-finders/compose-finders"
+import { PATTERN, composeMasks } from "../compose-masks/compose-masks"
 import { composeQuietZone } from "../compose-quiet-zone/compose-quiet-zone"
 import { composeSeparators } from "../compose-separators/compose-separators"
 import { getBitStream } from "../get-bit-stream/get-bit-stream"
@@ -40,6 +41,7 @@ export function getMatrix(text: string): Matrix {
   )
   const errorCorrection = LEVEL.L
   const version = VERSION.ONE
+  const pattern = PATTERN.EIGHT
   const matrix = pipe(
     createMatrix(version),
     (matrix) => composeFinders(matrix),
@@ -48,8 +50,7 @@ export function getMatrix(text: string): Matrix {
     // (matrix) => composeTimings(matrix, version),
     // (matrix) => composeVersions(matrix, version),
     (matrix) => composeErrorCorrections(matrix, errorCorrection),
-    // (matrix) => composeMasks(matrix),
-    // (matrix) => composeFormatFillers(matrix),
+    (matrix) => composeMasks(matrix, pattern),
     // (matrix) => composeBitStream(matrix),
     // (matrix) => runMaskPattern(matrix, maskPattern)
     (matrix) => composeQuietZone(matrix),
