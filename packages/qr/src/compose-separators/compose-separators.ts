@@ -1,4 +1,4 @@
-import { FINDER_PATTERN } from "../compose-finder-patterns/compose-finder-patterns"
+import { FINDER_PATTERN } from "../compose-finders/compose-finders"
 import type { Matrix } from "../get-matrix/get-matrix"
 
 const SIZE = 8

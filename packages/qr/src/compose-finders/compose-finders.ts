@@ -10,7 +10,7 @@ export const FINDER_PATTERN = [
   [1, 1, 1, 1, 1, 1, 1],
 ]
 
-export function composeFinderPatterns(matrix: Matrix): Matrix {
+export function composeFinders(matrix: Matrix): Matrix {
   const pattern = FINDER_PATTERN
   const size = FINDER_PATTERN.length
 

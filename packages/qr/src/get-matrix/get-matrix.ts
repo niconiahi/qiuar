@@ -1,7 +1,7 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable no-unused-vars */
-import { composeAlignmentPatterns } from "../compose-alignment-patterns/compose-alignment-patterns"
-import { composeFinderPatterns } from "../compose-finder-patterns/compose-finder-patterns"
+import { composeAlignments } from "../compose-alignments/compose-alignments"
+import { composeFinders } from "../compose-finders/compose-finders"
 import { composeQuietZone } from "../compose-quiet-zone/compose-quiet-zone"
 import { composeSeparators } from "../compose-separators/compose-separators"
 import { getBitStream } from "../get-bit-stream/get-bit-stream"
@@ -47,14 +47,19 @@ export function getMatrix(text: string): Matrix {
   const version = VERSION.ONE
   const matrix = pipe(
     createMatrix(version),
-    (matrix) => composeFinderPatterns(matrix),
+    (matrix) => composeFinders(matrix),
     (matrix) => composeSeparators(matrix),
-    (matrix) => composeAlignmentPatterns(matrix, version),
+    (matrix) => composeAlignments(matrix, version),
+    // (matrix) => composeTimings(matrix, version),
+    // (matrix) => composeVersions(matrix, version),
+    // (matrix) => composeErrorCorrections(matrix),
+    // (matrix) => composeMasks(matrix),
+    // (matrix) => composeFormatFillers(matrix),
+    // (matrix) => composeEncoding(matrix),
+    // (matrix) => composeMessageLength(matrix),
+    // (matrix) => composeBitStream(matrix),
+    // (matrix) => runMaskPattern(matrix, maskPattern)
     (matrix) => composeQuietZone(matrix),
-    // (matrix) => composeTimingPatterns(matrix, SIZE.SEVEN),
-    // (matrix) => composeBitStream(matrix, SIZE.SEVEN),
-    // (matrix) => [matrix, getMaskPattern(matrix)],
-    // ([matrix, maskPattern]) => composeMask(matrix, maskPattern)
   )
 
   return matrix

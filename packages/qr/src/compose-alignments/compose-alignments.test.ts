@@ -2,13 +2,13 @@ import { describe, expect, it } from "vitest"
 
 import { VERSION, createMatrix } from "../get-matrix/get-matrix"
 
-import { composeAlignmentPatterns } from "./compose-alignment-patterns"
+import { composeAlignments } from "./compose-alignments"
 
-describe("composeAlignmentPatterns", () => {
+describe("composeAlignments", () => {
   it("should get a matrix for version one", () => {
     const version = VERSION.ONE
     const matrix = createMatrix(version)
-    const result = composeAlignmentPatterns(matrix, version)
+    const result = composeAlignments(matrix, version)
     const output = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -38,7 +38,7 @@ describe("composeAlignmentPatterns", () => {
   // it("should get a matrix for version two", () => {
   //   const version = VERSION.TWO
   //   const matrix = createMatrix(version)
-  //   const result = composeAlignmentPatterns(matrix, version)
+  //   const result = composeAlignments(matrix, version)
   //   const output = [
   //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

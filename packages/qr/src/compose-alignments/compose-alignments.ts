@@ -9,7 +9,7 @@ const ALIGNMENT_PATTERN = [
 ]
 type Position = [number, number]
 
-export function composeAlignmentPatterns(matrix: Matrix, version: Version): Matrix {
+export function composeAlignments(matrix: Matrix, version: Version): Matrix {
   const positions = getPositions(matrix, version)
   for (const position of positions) {
     matrix = composeAlignmentPattern(matrix, position)
