@@ -6,6 +6,7 @@ import { composeFinders } from "../compose-finders/compose-finders"
 import { PATTERN, composeMasks } from "../compose-masks/compose-masks"
 import { composeQuietZone } from "../compose-quiet-zone/compose-quiet-zone"
 import { composeSeparators } from "../compose-separators/compose-separators"
+import { composeTimings } from "../compose-timings/compose-timings"
 import { getBitStream } from "../get-bit-stream/get-bit-stream"
 import { numberToBinary } from "../number-to-binary/number-to-binary"
 import { padBitStream } from "../pad-bit-stream/pad-bit-stream"
@@ -47,7 +48,7 @@ export function getMatrix(text: string): Matrix {
     (matrix) => composeFinders(matrix),
     (matrix) => composeSeparators(matrix),
     (matrix) => composeAlignments(matrix, version),
-    // (matrix) => composeTimings(matrix, version),
+    (matrix) => composeTimings(matrix, version),
     // (matrix) => composeVersions(matrix, version),
     (matrix) => composeErrorCorrections(matrix, errorCorrection),
     (matrix) => composeMasks(matrix, pattern),
