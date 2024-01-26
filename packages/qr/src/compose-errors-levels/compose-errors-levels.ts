@@ -13,7 +13,7 @@ export type Level = ObjectValues<typeof LEVEL>
 
 export const LENGTH = 2
 
-export function composeErrorCorrections(matrix: Matrix, level: Level): Matrix {
+export function composeErrorLevels(matrix: Matrix, level: Level): Matrix {
   const offset = FINDER_PATTERN.length + SEPARATOR_WIDTH
   const end = matrix.length
 
