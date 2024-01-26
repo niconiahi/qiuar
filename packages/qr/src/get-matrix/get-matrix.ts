@@ -1,6 +1,7 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import { composeAlignments } from "../compose-alignments/compose-alignments"
+import { LEVEL, composeErrorCorrections } from "../compose-error-corrections/compose-error-corrections"
 import { composeFinders } from "../compose-finders/compose-finders"
 import { composeQuietZone } from "../compose-quiet-zone/compose-quiet-zone"
 import { composeSeparators } from "../compose-separators/compose-separators"
@@ -44,6 +45,7 @@ export function getMatrix(text: string): Matrix {
     MODE.BYTE + numberToBinary(text.length) + getBitStream(text),
     MODE_SIZE.BYTE,
   )
+  const errorCorrection = LEVEL.L
   const version = VERSION.ONE
   const matrix = pipe(
     createMatrix(version),
@@ -52,11 +54,9 @@ export function getMatrix(text: string): Matrix {
     (matrix) => composeAlignments(matrix, version),
     // (matrix) => composeTimings(matrix, version),
     // (matrix) => composeVersions(matrix, version),
-    // (matrix) => composeErrorCorrections(matrix),
+    (matrix) => composeErrorCorrections(matrix, errorCorrection),
     // (matrix) => composeMasks(matrix),
     // (matrix) => composeFormatFillers(matrix),
-    // (matrix) => composeEncoding(matrix),
-    // (matrix) => composeMessageLength(matrix),
     // (matrix) => composeBitStream(matrix),
     // (matrix) => runMaskPattern(matrix, maskPattern)
     (matrix) => composeQuietZone(matrix),
