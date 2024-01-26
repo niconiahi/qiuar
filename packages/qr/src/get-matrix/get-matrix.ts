@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { composeAlignmentPatterns } from "../compose-alignment-patterns/compose-alignment-patterns"
 import { composeFinderPatterns } from "../compose-finder-patterns/compose-finder-patterns"
+import { composeQuietZone } from "../compose-quiet-zone/compose-quiet-zone"
 import { composeSeparators } from "../compose-separators/compose-separators"
 import { getBitStream } from "../get-bit-stream/get-bit-stream"
 import { numberToBinary } from "../number-to-binary/number-to-binary"
@@ -49,7 +50,7 @@ export function getMatrix(text: string): Matrix {
     (matrix) => composeFinderPatterns(matrix),
     (matrix) => composeSeparators(matrix),
     (matrix) => composeAlignmentPatterns(matrix, version),
-    // (matrix) => composeQuietZone(matrix),
+    (matrix) => composeQuietZone(matrix),
     // (matrix) => composeTimingPatterns(matrix, SIZE.SEVEN),
     // (matrix) => composeBitStream(matrix, SIZE.SEVEN),
     // (matrix) => [matrix, getMaskPattern(matrix)],

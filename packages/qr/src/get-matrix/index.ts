@@ -1,1 +1,1 @@
-export * from "./create-matrix"
+export * from "./get-matrix"
