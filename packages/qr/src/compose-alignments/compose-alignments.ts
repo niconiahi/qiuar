@@ -8,6 +8,7 @@ const ALIGNMENT_PATTERN = [
   [1, 1, 1, 1, 1],
 ]
 type Position = [number, number]
+export const ALIGNMENT_PATTERN_LENGTH = ALIGNMENT_PATTERN.length
 
 export function composeAlignments(matrix: Matrix, version: Version): Matrix {
   const positions = getPositions(matrix, version)
@@ -18,10 +19,9 @@ export function composeAlignments(matrix: Matrix, version: Version): Matrix {
 }
 
 function composeAlignmentPattern(matrix: Matrix, position: Position): Matrix {
-  const size = ALIGNMENT_PATTERN.length
   const [x, y] = position
-  for (let row = 0; row < size; row++) {
-    for (let col = 0; col < size; col++) {
+  for (let row = 0; row < ALIGNMENT_PATTERN_LENGTH; row++) {
+    for (let col = 0; col < ALIGNMENT_PATTERN_LENGTH; col++) {
       matrix[y + row][x + col] = ALIGNMENT_PATTERN[row][col]
     }
   }

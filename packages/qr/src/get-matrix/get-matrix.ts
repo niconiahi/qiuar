@@ -63,7 +63,7 @@ export function getMatrix(text: string): Matrix {
   return matrix
 }
 
-export function pipe<T>(initialState: T, ...fns: ((_arg: T) => T)[]): T {
+function pipe<T>(initialState: T, ...fns: ((_arg: T) => T)[]): T {
   return fns.reduce((result, fn) => fn(result), initialState)
 }
 

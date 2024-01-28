@@ -1,4 +1,4 @@
-import { FINDER_PATTERN } from "../compose-finders/compose-finders"
+import { FINDER_PATTERN_LENGTH } from "../compose-finders/compose-finders"
 import { SEPARATOR_WIDTH } from "../compose-separators/compose-separators"
 import type { Matrix } from "../get-matrix/get-matrix"
 
@@ -10,11 +10,10 @@ export const LEVEL = {
 } as const
 type ObjectValues<T> = T[keyof T]
 export type Level = ObjectValues<typeof LEVEL>
-
-export const ERROR_CORRECTION_LEVEL_LENGTH = 2
+export const ERROR_CORRECTION_LEVEL_LENGTH = LEVEL.L.length
 
 export function composeErrorCorrectionLevels(matrix: Matrix, level: Level): Matrix {
-  const offset = FINDER_PATTERN.length + SEPARATOR_WIDTH
+  const offset = FINDER_PATTERN_LENGTH + SEPARATOR_WIDTH
   const end = matrix.length
 
   // top-left error correction

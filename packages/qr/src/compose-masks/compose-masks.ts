@@ -15,20 +15,19 @@ export const PATTERN = {
 } as const
 type ObjectValues<T> = T[keyof T]
 export type Pattern = ObjectValues<typeof PATTERN>
-
-const SIZE = 3
+export const MASK_LENGTH = PATTERN.ONE.length
 
 export function composeMasks(matrix: Matrix, pattern: Pattern): Matrix {
   const offset = FINDER_PATTERN.length + SEPARATOR_WIDTH
   const end = matrix.length
 
   // top-left error correction
-  for (let i = 0; i < SIZE; i++) {
+  for (let i = 0; i < MASK_LENGTH; i++) {
     matrix[offset][i + ERROR_CORRECTION_LEVEL_LENGTH] = pattern[i]
   }
 
   // bottom-left error correction
-  for (let i = 0; i < SIZE; i++) {
+  for (let i = 0; i < MASK_LENGTH; i++) {
     matrix[end - i - 1 - ERROR_CORRECTION_LEVEL_LENGTH][offset] = pattern[i]
   }
 
