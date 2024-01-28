@@ -3,6 +3,7 @@
 import { composeAlignments } from "../compose-alignments/compose-alignments"
 import { LEVEL, composeErrorCorrectionLevels } from "../compose-errors-correction-levels/compose-errors-correction-levels"
 import { composeFinders } from "../compose-finders/compose-finders"
+import { composeFormatErrorCorrection } from "../compose-format-error-corrections/compose-format-error-corrections"
 import { PATTERN, composeMasks } from "../compose-masks/compose-masks"
 import { composeQuietZone } from "../compose-quiet-zone/compose-quiet-zone"
 import { composeSeparators } from "../compose-separators/compose-separators"
@@ -51,6 +52,7 @@ export function getMatrix(text: string): Matrix {
     (matrix) => composeTimings(matrix, version),
     (matrix) => composeErrorCorrectionLevels(matrix, level),
     (matrix) => composeMasks(matrix, pattern),
+    (matrix) => composeFormatErrorCorrection(matrix),
     // TODO: version 7 and higher, requires a version information area
     // (matrix) => composeVersions(matrix, pattern),
     // (matrix) => composeBitStream(matrix),
