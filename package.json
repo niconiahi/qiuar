@@ -7,7 +7,7 @@
     "dev": "run-p dev:**",
     "dev:app:playground": "pnpm --filter @qiuar/playground run dev",
     "dev:package:qr": "pnpm --filter @qiuar/qr run dev",
-    "build": "pnpm --recursive --sort --filter @qiuar/playground run build",
+    "build": "pnpm --recursive --sort --filter !@qiuar/playground run build",
     "lint": "pnpm --recursive --filter !@qiuar/playground run lint",
     "test:unit": "pnpm --recursive --filter !@qiuar/playground run test:unit",
     "lint:fix": "pnpm --recursive --filter !@qiuar/playground run lint:fix",
