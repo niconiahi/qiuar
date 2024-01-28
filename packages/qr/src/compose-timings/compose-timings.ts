@@ -1,5 +1,5 @@
 import { FINDER_PATTERN } from "../compose-finders/compose-finders"
-import { WIDTH as SEPARATOR_WIDTH } from "../compose-separators/compose-separators"
+import { SEPARATOR_WIDTH } from "../compose-separators/compose-separators"
 import { type Matrix, VERSION, type Version } from "../get-matrix/get-matrix"
 
 function getPattern(version: Version): number[] {

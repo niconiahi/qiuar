@@ -4,7 +4,7 @@ import { VERSION, createMatrix } from "../get-matrix/get-matrix"
 
 import { PATTERN, composeMasks } from "./compose-masks"
 
-describe.only("composeMasks", () => {
+describe("composeMasks", () => {
   it("should correctly compose mask pattern one", () => {
     const version = VERSION.ONE
     const matrix = createMatrix(version)

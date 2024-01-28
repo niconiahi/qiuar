@@ -1,6 +1,6 @@
-import { LENGTH as ERROR_CORRECTION_LENGTH } from "../compose-error-corrections/compose-error-corrections"
+import { ERROR_CORRECTION_LEVEL_LENGTH } from "../compose-errors-correction-levels/compose-errors-correction-levels"
 import { FINDER_PATTERN } from "../compose-finders/compose-finders"
-import { WIDTH as SEPARATOR_WIDTH } from "../compose-separators/compose-separators"
+import { SEPARATOR_WIDTH } from "../compose-separators/compose-separators"
 import type { Matrix } from "../get-matrix/get-matrix"
 
 export const PATTERN = {
@@ -24,12 +24,12 @@ export function composeMasks(matrix: Matrix, pattern: Pattern): Matrix {
 
   // top-left error correction
   for (let i = 0; i < SIZE; i++) {
-    matrix[offset][i + ERROR_CORRECTION_LENGTH] = pattern[i]
+    matrix[offset][i + ERROR_CORRECTION_LEVEL_LENGTH] = pattern[i]
   }
 
   // bottom-left error correction
   for (let i = 0; i < SIZE; i++) {
-    matrix[end - i - 1 - ERROR_CORRECTION_LENGTH][offset] = pattern[i]
+    matrix[end - i - 1 - ERROR_CORRECTION_LEVEL_LENGTH][offset] = pattern[i]
   }
 
   return matrix
