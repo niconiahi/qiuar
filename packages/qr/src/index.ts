@@ -1,5 +1,5 @@
 export * from "./compose-alignments"
-export * from "./compose-errors-levels"
+export * from "./compose-errors-correction-levels"
 export * from "./compose-finders"
 export * from "./compose-masks"
 export * from "./compose-quiet-zone"

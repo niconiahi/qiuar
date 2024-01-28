@@ -1,7 +1,7 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import { composeAlignments } from "../compose-alignments/compose-alignments"
-import { LEVEL, composeErrorLevels } from "../compose-errors-levels/compose-errors-levels"
+import { LEVEL, composeErrorCorrectionLevels } from "../compose-errors-correction-levels/compose-errors-correction-levels"
 import { composeFinders } from "../compose-finders/compose-finders"
 import { PATTERN, composeMasks } from "../compose-masks/compose-masks"
 import { composeQuietZone } from "../compose-quiet-zone/compose-quiet-zone"
@@ -49,9 +49,8 @@ export function getMatrix(text: string): Matrix {
     (matrix) => composeSeparators(matrix),
     (matrix) => composeAlignments(matrix, version),
     (matrix) => composeTimings(matrix, version),
-    (matrix) => composeErrorLevels(matrix, level),
+    (matrix) => composeErrorCorrectionLevels(matrix, level),
     (matrix) => composeMasks(matrix, pattern),
-    // (matrix) => composeFormatErrorCorrection(matrix, version),
     // TODO: version 7 and higher, requires a version information area
     // (matrix) => composeVersions(matrix, pattern),
     // (matrix) => composeBitStream(matrix),
@@ -61,6 +60,7 @@ export function getMatrix(text: string): Matrix {
 
   return matrix
 }
+
 export function pipe<T>(initialState: T, ...fns: ((_arg: T) => T)[]): T {
   return fns.reduce((result, fn) => fn(result), initialState)
 }

@@ -2,13 +2,13 @@ import { describe, expect, it } from "vitest"
 
 import { VERSION, createMatrix } from "../get-matrix/get-matrix"
 
-import { LEVEL, composeErrorCorrections } from "./compose-error-corrections"
+import { LEVEL, composeErrorCorrectionLevels } from "./compose-errors-correction-levels"
 
-describe("composeErrorCorrections", () => {
+describe("composeErrorCorrectionLevels", () => {
   it("should correctly set error correction L", () => {
     const version = VERSION.ONE
     const matrix = createMatrix(version)
-    const result = composeErrorCorrections(matrix, LEVEL.L)
+    const result = composeErrorCorrectionLevels(matrix, LEVEL.L)
     const output = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -37,7 +37,7 @@ describe("composeErrorCorrections", () => {
   it("should correctly set error correction M", () => {
     const version = VERSION.ONE
     const matrix = createMatrix(version)
-    const result = composeErrorCorrections(matrix, LEVEL.M)
+    const result = composeErrorCorrectionLevels(matrix, LEVEL.M)
     const output = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -66,7 +66,7 @@ describe("composeErrorCorrections", () => {
   it("should correctly set error correction Q", () => {
     const version = VERSION.ONE
     const matrix = createMatrix(version)
-    const result = composeErrorCorrections(matrix, LEVEL.Q)
+    const result = composeErrorCorrectionLevels(matrix, LEVEL.Q)
     const output = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -95,7 +95,7 @@ describe("composeErrorCorrections", () => {
   it("should correctly set error correction H", () => {
     const version = VERSION.ONE
     const matrix = createMatrix(version)
-    const result = composeErrorCorrections(matrix, LEVEL.H)
+    const result = composeErrorCorrectionLevels(matrix, LEVEL.H)
     const output = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
