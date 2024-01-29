@@ -5,9 +5,6 @@ export default antfu(
     stylistic: {
       quotes: "double",
     },
-    formatters: {
-      markdown: "prettier",
-    },
   },
   {
     files: ["**/*.ts"],
@@ -25,7 +22,14 @@ export default antfu(
         },
       ],
       "import/order": ["error", {
-        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+        ],
         "pathGroups": [
           {
             pattern: "@ethernauta/**",
@@ -42,10 +46,16 @@ export default antfu(
       "curly": ["error", "all"],
       "no-nested-ternary": "error",
       "unused-imports/no-unused-imports": "error",
-      "no-unused-vars": ["error", { vars: "all", args: "all", ignoreRestSiblings: false, argsIgnorePattern: "^_" }],
+      "no-unused-vars": ["error", {
+        vars: "all",
+        args: "all",
+        ignoreRestSiblings: false,
+        argsIgnorePattern: "^_",
+      }],
       "no-fallthrough": "error",
       "style/arrow-parens": ["error", "always"],
       "style/operator-linebreak": ["error", "after"],
+      "antfu/if-newline": "error",
     },
   },
 )

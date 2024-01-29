@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -7,10 +7,21 @@
     <script defer src="https://unpkg.com/hyperscript.org@0.9.12"></script>
     <title>Qiuar</title>
   </head>
-  <body>
-    <div id="root"></div>
+  <body style="margin: 0; height: 100%">
     <script type="module" src="/src/main.ts"></script>
-    <h1>qiuar</h1>
-    <canvas id="myCanvas" width="250" height="250"></canvas>
+    <shadow-dom>
+      <main
+        style="
+          background: black;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <canvas width="250" height="250"></canvas>
+      </main>
+    </shadow-dom>
   </body>
 </html>
