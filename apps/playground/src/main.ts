@@ -1,7 +1,27 @@
+import "./global.css";
 import type { Matrix } from "@qiuar/qr"
 import { QUIET_ZONE_WIDTH, getMatrix } from "@qiuar/qr"
 
 import { registerShadowDom } from "./components/shadow-dom"
+
+function setupCanvas() {
+  document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+  <shadow-dom>
+    <main
+      style="
+        background: black;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <canvas width="250" height="250"></canvas>
+    </main>
+  </shadow-dom>
+`
+}
 
 const BITE_WIDTH = 10
 
@@ -42,5 +62,6 @@ export function downloadQr(canvas: HTMLCanvasElement): void {
   a.click()
 }
 
+setupCanvas()
 registerShadowDom()
 renderQr()
