@@ -8,7 +8,7 @@ function setupCanvas() {
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <shadow-dom>
     <main>
-      <h2>This QR is being generated with @qiuar/qr library</h2>
+      <h2>This QR is being generated with experimental unpublished @qiuar/qr library</h2>
       <canvas width="250" height="250"></canvas>
     </main>
   </shadow-dom>
