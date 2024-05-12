@@ -7,16 +7,8 @@ import { registerShadowDom } from "./components/shadow-dom"
 function setupCanvas() {
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <shadow-dom>
-    <main
-      style="
-        background: black;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-      "
-    >
+    <main>
+      <h2>This QR is being generated with @qiuar/qr library</h2>
       <canvas width="250" height="250"></canvas>
     </main>
   </shadow-dom>
